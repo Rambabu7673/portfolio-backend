@@ -4,7 +4,8 @@ import { upload } from "../middleware/uploads.js";
 export const addAmin = async (req, res) => {
   const { projectName, projectDescription, projectLink, tech } = req.body;
   // User multer to upload image
-  const image = req.file?.path;
+  const image = req.file.path.replace(/\\/g, "/");
+
   console.log(image);
   console.log(req.body);
   try {
